@@ -1,0 +1,61 @@
+{% extends 'patient/patientbase.html' %}
+{% load widget_tweaks %}
+
+{% block head %}
+
+
+{% endblock head %}
+
+{% block content %}
+
+
+
+<div class="container">
+  {% if total %}
+  {% for vaccine in vaccination %}
+<div class="row">
+<div class="col-md-6">
+
+<div class="card text-white bg-info mb-3" style="max-width: 50rem;">
+  <div class="card-header">First Dose</div>
+    <div class="card-body">
+    <h5 class="card-title">{{vaccine.Vaccine_name}}</h5>
+    <p class="card-text">{{vaccine.First_schudle}}</p>
+    <p class="card-text">Status:{{vaccine.First_Status}}</p>
+  </div>
+</div>
+</div>
+<div class="col-md-6">
+
+
+<div class="card text-white bg-secondary mb-3" style="max-width: 50rem;">
+  <div class="card-header">Second Dose</div>
+  <div class="card-body">
+    <h5 class="card-title">{{vaccine.Vaccine_name}}</h5>
+    <p class="card-text">{{vaccine.Second_schdule}}.</p>
+    <p class="card-text">Status:{{vaccine.Second_Status}}</p>
+  </div>
+</div>
+</div>
+</div>
+  <a href="{% url 'patient:vaccination_edit' vaccine.id %}"><button type="button" class="btn btn-primary">Edit Appointment</button></a>
+  <a href="{% url 'patient:vaccine_report' vaccine.id %}"><button type="button" class="btn btn-success">Print Copy</button></a>
+  <a href="{% url 'patient:vaccination_deleted' vaccine.id %}"><button type="button" class="btn btn-danger" id="alart">Cancel Appointment</button></a>
+  {% endfor %}
+  {% else %}
+
+
+  <h1>If haven't Crate any appointment</h1>
+   {% endif %}
+</div>
+
+{% endblock content %}
+{% block javascript %}
+<script>
+    $("#alart").click( function()
+           {
+             alert('Are you sure to Deleted the Vaccination appointment');
+           }
+        );
+</script>
+{% endblock %}

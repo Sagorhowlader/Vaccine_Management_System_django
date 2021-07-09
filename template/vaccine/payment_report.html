@@ -1,0 +1,69 @@
+{% extends 'vaccine/adminbase.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+
+{% endblock head %}
+{% block content %}
+<div class="container">
+    <div class="row" style="margin-top:10px; margin-bottom: 30px">
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <p style="text-align: left; margin-top: 10px">Showing data : {{sdate}} to {{edate}}</p>
+        </div>
+        <div class="col-md-6" align="center">
+
+            <form method="post" action="{% url 'patient:patient_report' %}"> {% csrf_token %}
+                <label for="startdate">Start:</label>
+                <input type="date" name="sdate" class="myform" id="startdate">
+
+                <label for="enddate">End:</label>
+                <input type="date" name="edate" class="myform" id="enddate">
+                <button type="submit" name="reportform" class="btn btn-primary"
+                        value="reportformvalue" style="" id="showProgress">Run
+                </button>
+                <p style="text-align: right; color:red; float: right; margin-right: 83px;">{{ formValidation }}</p>
+            </form>
+
+
+        </div>
+    </div>
+<table id="table_id" class="display">
+    <thead>
+        <tr>
+            <th>Payment User</th>
+            <th>Card Holder Name</th>
+            <th>Vaccine Name</th>
+            <th>Card No</th>
+            <th>Total Amount</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for payment in payments %}
+        <tr>
+             <td>{{payment.Payment_User}}</td>
+             <td>{{payment.Name}}</td>
+             <td>{{payment.Vaccine}}</td>
+             <td>{{payment.Card_No}}</td>
+             <td>{{payment.Total_amount}}</td>
+             <td>{{payment.Date}}</td>
+
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+    </div>
+{% endblock content %}
+
+{% block javascript %}
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+
+<script>
+$(document).ready( function () {
+    $('#table_id').DataTable();
+} );
+</script>
+{% endblock javascript %}

@@ -1,0 +1,26 @@
+{% extends 'patient/patientbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="container">
+<h1 id="content" class=" d-none d-lg-block" style="padding: 10px;">Possible Side Effects After Getting a Vaccine</h1>
+    <hr><div class="col-md-12 splash-col"><p>Vaccination will help protect you from getting Virus. You may have some side effects, which are normal signs that your body is building protection. These side effects may affect your ability to do daily activities, but they should go away in a few days. Some people have no side effects.</p>
+<h2>Common Side Effects</h2><hr>
+  <div class="row "><div class="col-md-6 splash-col"><div class="card border-0 rounded-0"><h3 class="card-header h4 bg-tertiary rounded-0">On the arm where you got the shot:</h3><div class="card-body "><div class="row"><div class="pr-md-0 col-md-4"><div class="text-center"><img src="/static/image/pain_1.png" alt="WhatExpectafterVaccinationAnimation_pain" class="card-img-top img-fluid pb-3 card-img-orig rounded-0"></div></div><div class="col"><ul>
+<li>Pain</li>
+<li>Redness</li>
+<li>Swelling</li>
+</ul>
+</div></div></div></div></div><div class="col-md-6 splash-col"><div class="card border-0 rounded-0"><h3 class="card-header h4 bg-tertiary rounded-0">Throughout the rest of your body:</h3><div class="card-body "><div class="row"><div class="pr-md-0 col-md-4"><div class="text-center"><img src="/static/image/pain_2.png" alt="WhatExpectafterVaccinationAnimation_fever" class="card-img-top img-fluid pb-2 card-img-orig rounded-0"></div></div><div class="col"><ul>
+<li>Tiredness</li>
+<li>Headache</li>
+<li>Muscle pain</li>
+<li>Chills</li>
+<li>Fever</li>
+<li>Nausea</li>
+</ul>
+</div></div></div></div></div></div>
+    </div>
+    <h2>For more Details <a href="#">Contact Us</a></h2>
+    <a href="{% url 'patient:create_schedule' %}"><button class="btn btn-primary">Click to Continue</button></a>
+</div>
+{% endblock content %}

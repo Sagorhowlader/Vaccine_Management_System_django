@@ -1,0 +1,59 @@
+{% extends 'vaccine/adminbase.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+
+{% endblock head %}
+{% block content %}
+<div class="container">
+<table id="table_id" class="display">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>First Name</th>
+            <th>Second Name</th>
+            <th>Gender</th>
+            <th>Blood</th>
+            <th>NID</th>
+            <th>Mobile</th>
+            <th>Image</th>
+            <th>Action</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for patient in object_list %}
+        <tr>
+             <td>{{patient.user}}</td>
+             <td>{{patient.first_name}}</td>
+             <td>{{patient.second_name}}</td>
+             <td>{{patient.gender}}</td>
+             <td>{{patient.blood}}</td>
+             <td>{{patient.NID}}</td>
+             <td>0{{patient.mobile}}</td>
+            {% if patient.image %}
+             <td><img src="{% static patient.image.url %}" alt="Profile Pic" height="40px" width="40px"/></td>
+             {% else %}
+            <td><img src="#" width="40px"/></td>
+            {% endif %}
+            <td><button type="button" class="btn btn-success">Edit</button></td>
+             <td><a href="{% url 'patient:patient_deleted' patient.user_id %}"><i class="fa fa-trash"></i></a></td>
+
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+    </div>
+{% endblock content %}
+
+{% block javascript %}
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+
+<script>
+$(document).ready( function () {
+    $('#table_id').DataTable();
+} );
+</script>
+{% endblock javascript %}

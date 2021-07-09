@@ -1,0 +1,91 @@
+{% extends 'vaccine/beforeindex.html' %}
+{% load static %}
+{% block head %}
+<style>
+    .gallery-wrap .img-big-wrap img {
+    height: 450px;
+    width: auto;
+    display: inline-block;
+    cursor: zoom-in;
+}
+
+
+.gallery-wrap .img-small-wrap .item-gallery {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #ddd;
+    margin: 7px 2px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.gallery-wrap .img-small-wrap {
+    text-align: center;
+}
+.gallery-wrap .img-small-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: zoom-in;
+}
+</style>
+
+{% endblock %}
+{% block content %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+
+
+
+<div class="card">
+	<div class="row">
+		<aside class="col-sm-5 border-right">
+<article class="gallery-wrap">
+<div class="img-big-wrap">
+  <div> <a href="#"><img src="{% static vaccine.Vaccine_image.url %}"></a></div>
+</div> <!-- slider-product.// -->
+
+</article> <!-- gallery-wrap .end// -->
+		</aside>
+		<aside class="col-sm-7">
+<article class="card-body p-5">
+	<h3 class="title mb-3">{{vaccine.Vaccine_name}}</h3>
+
+<p class="price-detail-wrap" style="text-align: left;">
+	<span class="price h3 text-warning">
+		<span  class="currency">Taka $</span><span class="num">{{vaccine.Vaccine_price}}</span>
+	</span>
+
+</p> <!-- price-detail-wrap .// -->
+<dl class="item-property">
+  <dt>Description</dt>
+  <dd><p style="text-align: left;">{{vaccine.Vaccine_details}}</p></dd>
+</dl>
+<dl class="param param-feature">
+  <dt>Age</dt>
+  <dd>{{vaccine.Vaccine_allow_age}}</dd>
+</dl>  <!-- item-property-hor .// -->
+
+
+<hr>
+
+	<hr>
+
+	<a href="#" class="btn btn-lg btn-primary text-uppercase"> Make Appointment </a>
+
+</article> <!-- card-body.// -->
+		</aside> <!-- col.// -->
+	</div> <!-- row.// -->
+</div> <!-- card.// -->
+
+
+</div>
+<!--container.//-->
+
+
+{% endblock %}

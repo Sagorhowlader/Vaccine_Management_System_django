@@ -1,0 +1,14 @@
+{% extends 'patient/patientbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">What's your personal Information?</h1>
+        <p class="lead text-muted">You might need to give some question question before make appointment. Click the button below to get started.</p><p>
+            <a href="/patient/create-profile" class="btn btn-primary">Enter your Personal Information</a>
+        </p>
+    </div>
+</section>
+
+{% endblock %}

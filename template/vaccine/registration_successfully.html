@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+</head>
+<body>
+<section id="section-jumbotron" class="jumbotron jumbotron-fluid d-flex justify-content-center align-items-center">
+  <div class="container text-center">
+    <h1 class="display-1 text-info">Your Vaccine Registration Successfully</h1>
+    <p class="display-4 d-none d-sm-block">We will mail if you are Eligible for Vaccine. Please check your mail</p>
+    <a href="{% url 'patient:patient-dashboard' %}" class="btn btn-lg btn-info" style="padding-right: 35px;">Click to Dashboard</a>
+
+    <br><br><br>
+  </div>
+</section>
+
+</body>
+</html>

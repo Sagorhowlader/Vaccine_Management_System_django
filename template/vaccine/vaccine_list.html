@@ -1,0 +1,78 @@
+{% extends 'vaccine/beforeindex.html' %}
+{% load static %}
+{% block head %}
+
+
+<style>
+body {
+  font-family: Arial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+{% endblock head %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <form action="vaccine/search-vaccine/a.html" method="post">
+        {% csrf_token %}
+    <input id="input" type="text" placeholder="Search.." name="search">
+    <button type="button" class="btn btn-outline-primary">search</button>
+</form>
+    <div id="search">
+   <div class="row g-2">
+       {% for vaccine in vaccines %}
+        <div class="col-md-3">
+            <div class="card p-2 py-3 text-center">
+                <div class="img mb-2"> <img src="{% static vaccine.Vaccine_image.url %}" width="70" height="50" class="rounded-circle"> </div>
+                <a href="/vaccine/vaccine-details/{{vaccine.id}}"><h5 class="mb-0">{{vaccine.Vaccine_name}}</h5> </a> <small>${{vaccine.Vaccine_price}}</small>
+                <div class="mt-4 apointment"> <a href="/vaccine/vaccine-details/{{vaccine.id}}"><button class="btn btn-success text-uppercase">More Details</button> </a></div>
+            </div>
+        </div>
+       {% endfor %}
+    </div>
+    </div>
+</div>
+
+{% endblock content %}
+{% block javascript%}
+
+<script>
+$("#input").keyup(function() {
+  alert( "Handler for .keyup() called." );
+});
+</script>
+{% endblock javascript%}
