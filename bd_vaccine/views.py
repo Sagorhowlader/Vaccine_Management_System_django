@@ -48,7 +48,7 @@ def admin_dashboard_view(request):
 def pendingpatient(request):
     val = is_superuser(request.user.id)
     if val:
-        p_list = Vaccination.objects.filter(Status='Pending')
+        p_list = Vaccination.objects.filter(First_Status='Pending')
         return render(request, 'patient/pending_patient.html',{'p_list':p_list})
     else:
         return render(request, 'patient/patient_dashboard.html')
@@ -57,7 +57,7 @@ def pendingpatient(request):
 def completedpatient(request):
     val = is_superuser(request.user.id)
     if val:
-        c_list = Vaccination.objects.filter(Status='Completed')
+        c_list = Vaccination.objects.filter(First_Status='Completed')
         return render(request, 'patient/completed_patient.html',{'c_list':c_list})
     else:
         return render(request, 'patient/patient_dashboard.html')

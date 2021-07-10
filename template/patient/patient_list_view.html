@@ -24,6 +24,9 @@
     </thead>
     <tbody>
     {% for patient in object_list %}
+        {% if   patient.user.is_superuser  %}
+
+        {% else %}
         <tr>
              <td>{{patient.user}}</td>
              <td>{{patient.first_name}}</td>
@@ -41,6 +44,7 @@
              <td><a href="{% url 'patient:patient_deleted' patient.user_id %}"><i class="fa fa-trash"></i></a></td>
 
         </tr>
+        {% endif %}
     {% endfor %}
     </tbody>
 </table>

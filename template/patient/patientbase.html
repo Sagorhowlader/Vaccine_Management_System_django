@@ -179,8 +179,11 @@
   <!--sidebar start-->
   <div class="sidebar">
     <center>
-
-      <img src="{% static 'image/student.png' %}" class="profile_image" alt="">
+    {% if request.user.profile.image %}
+      <img src="{% static request.user.profile.image.url %}" class="profile_image" alt="">
+      {% else %}
+      <img src="" class="profile_image" alt="">
+      {% endif %}
       <h4>{{request.user}}</h4>
       <h6 style="color: rgb(255, 255, 255);">(Patient)</h6>
 
@@ -188,8 +191,7 @@
 
     <a href="/patient/patient-dashboard"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
     <a href="/patient/makeappointment"><i class="fas fa-book"></i><span>Make Appointment</span></a>
-    <a href="/student/student-marks"><i class="fas fa-sort-numeric-up"></i><span>Marks</span></a>
-    <a href="/student/student-marks"><i class="fas fa-flask"></i><span>Vaccine Info</span></a>
+    <a href="/vaccine_list"><i class="fas fa-flask"></i><span>Vaccine Info</span></a>
   </div>
   <!--sidebar end-->
 

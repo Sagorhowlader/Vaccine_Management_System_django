@@ -1,4 +1,6 @@
 import datetime
+from locale import format_string
+
 
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import user_passes_test, login_required
