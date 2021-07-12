@@ -4,6 +4,7 @@ app_name = 'vaccine'
 urlpatterns = [
  path('vaccine-details/<int:pk>',DetailsVaccine.as_view(),name= 'vaccine_details'),
  path('vaccine_list_view/',ListViewVaccine.as_view(), name='vaccine_list_view'),
+ path('vaccine_list_view_after/',ListViewVaccineAfter.as_view(), name='vaccine_list_view_after'),
  path('search-vaccine/',vaccine_search, name='search-vaccine'),
  path('vaccine-add/',add_vaccine,name='vaccine-add'),
  path('vaccine-deleted/<str:id>',delete_vaccine,name='vaccine-deleted'),

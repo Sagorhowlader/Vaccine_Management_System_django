@@ -19,6 +19,7 @@ urlpatterns = [
     path('vaccine_report/<int:pk>',vaccine_report,name='vaccine_report'),
     path('vaccination_edit/<int:id>', edit_vaccine, name='vaccination_edit'),
     path('vaccination_deleted/<int:id>', deleted_vaccine, name='vaccination_deleted'),
+    path('feedback/', feedback, name='feedback'),
 
 
 ]

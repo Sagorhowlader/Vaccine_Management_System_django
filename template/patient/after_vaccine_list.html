@@ -1,0 +1,23 @@
+{% extends 'patient/patientbase.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% for vaccine in object_list %}
+        <div class="card" style="width: 18rem;">
+      <img  height="100px" width="50px" class="card-img-top" src="{% static vaccine.Vaccine_image.url  %}" alt="Image">
+      <div class="card-body">
+        <h5 class="card-title">{{vaccine.Vaccine_name}}</h5>
+          <p class="card-text">Allow Age: {{vaccine.Vaccine_allow_age}}</p>
+          <p class="card-text">Taka: {{vaccine.Vaccine_price}}</p>
+        <a href="{% url 'patient:create_profile' %}" class="btn btn-primary">Make Appointment</a>
+      </div>
+    </div>
+        {% endfor %}
+
+    </div>
+    </div>
+
+{% endblock content %}

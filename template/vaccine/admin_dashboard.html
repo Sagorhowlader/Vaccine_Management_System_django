@@ -1,6 +1,6 @@
 {% extends 'vaccine/adminbase.html' %}
 {% load widget_tweaks %}
-
+{% load static %}
 {% block head %}
     <style type="text/css">
       a:link {
@@ -106,6 +106,17 @@
 
 
     </div>
+      <div class="row">
+           <div class="col-md-4 col-xl-3">
+        <div class="card bg-c-green order-card">
+          <div class="card-block">
+            <h6 class="m-b-20"><a href="{% url 'feedback_admin' %}" style="text-decoration: none;color:white;">Total Feedback</a></h6>
+           <h2 class="text-right"><i class="fas fa-book f-left"></i><span>{{total_feedback}}</span></h2>
+
+          </div>
+        </div>
+      </div>
+      </div>
   </div>
 
 

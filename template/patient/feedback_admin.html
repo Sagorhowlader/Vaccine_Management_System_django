@@ -1,0 +1,22 @@
+{% extends 'vaccine/adminbase.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+<div class="row">
+  {% for f in form %}
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{f.Subject}}</h5>
+        <p class="card-text">{{f.Body}}</p>
+        <a href="#" class="btn btn-primary">Replay</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</div>
+
+{% endblock content %}

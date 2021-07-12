@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path , include
 from vaccine import views
+from .views import *
 
 from .views import *
 from django.contrib.auth import views as auth_view
@@ -31,6 +32,7 @@ urlpatterns = [
     path('vaccine-list/',views.vaccine_list,name='vaccine_list'),
     path('vaccine/', include('vaccine.urls', namespace='vaccine')),
     path('patient/',include('profiles.urls',namespace='patient')),
+    path('feedback_admin/', feedback_admin, name='feedback_admin'),
     #path('admin-dashboard',admin_dashboard_view,name='admin-dashboard')
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

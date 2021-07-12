@@ -26,6 +26,9 @@ class ListViewVaccine(generic.ListView):
     model = Vaccine
     template_name = 'vaccine/vaccine_list_view.html'
 
+class ListViewVaccineAfter(generic.ListView):
+    model = Vaccine
+    template_name = 'patient/after_vaccine_list.html'
 
 def add_vaccine(request):
     form = VaccineForm()

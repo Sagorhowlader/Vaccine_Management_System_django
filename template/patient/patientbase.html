@@ -182,16 +182,18 @@
     {% if request.user.profile.image %}
       <img src="{% static request.user.profile.image.url %}" class="profile_image" alt="">
       {% else %}
-      <img src="" class="profile_image" alt="">
+      <img src="/static/image/Patient.jpg" class="profile_image" alt="">
       {% endif %}
-      <h4>{{request.user}}</h4>
+      <h4>Name: {{request.user}}</h4>
       <h6 style="color: rgb(255, 255, 255);">(Patient)</h6>
 
     </center>
 
     <a href="/patient/patient-dashboard"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
     <a href="/patient/makeappointment"><i class="fas fa-book"></i><span>Make Appointment</span></a>
-    <a href="/vaccine_list"><i class="fas fa-flask"></i><span>Vaccine Info</span></a>
+    <a href="/vaccine/vaccine_list_view_after"><i class="fas fa-flask"></i><span>Vaccine Info</span></a>
+    <a href="/patient/feedback"><i class="fas fa-flask"></i><span>FeedBack</span></a>
+
   </div>
   <!--sidebar end-->
 
